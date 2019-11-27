@@ -10,14 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('home');
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
 });
+
+Route::get('/', 'HomeController@index');
 
 //@ŧodo move to logged section
 Route::get('/watch/{id}', 'WatchController@player');
-
 
 Auth::routes();
 
