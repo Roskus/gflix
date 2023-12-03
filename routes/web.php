@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,20 +12,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/clear-cache', function() {
-    $exitCode = Artisan::call('cache:clear');
-    // return what you want
+
+Route::get('/', function () {
+    return view('welcome');
 });
-
-Route::get('/', 'HomeController@index');
-
-//@ŧodo move to logged section
-Route::get('/watch/{id}', 'WatchController@player');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
