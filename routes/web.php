@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
 });
+
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
+
+//@ŧodo move to logged section
+Route::get('/watch/{id}', [\App\Http\Controllers\WatchController::class, 'player']);
+
+Auth::routes();

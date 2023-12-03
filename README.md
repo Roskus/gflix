@@ -8,5 +8,5 @@ docker build -t gflix .
 ```
 Run and access to php machine
 ```terminal
-docker run -it gflix /bin/bash
+docker run -p 80:80 -p 443:443 --name gflix -it gflix /bin/bash
 ```
