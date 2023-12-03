@@ -8,10 +8,14 @@ COPY . /var/www/gflix
 # Install system dependencies
 RUN apt-get update && \
     apt-get install -y \
+    curl \
+    openssl \
     git \
     libpq-dev \
     libxml2-dev \
-    unzip
+    unzip \
+    vim \
+    nano
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -19,13 +23,11 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Install PHP extensions required by your application
 RUN docker-php-ext-install bcmath xml mbstring \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
-    && docker-php-ext-install pgsql pdo_pgsql
-
-CMD ["tail", "-f", "/dev/null"]
+    && docker-php-ext-install pdo pgsql pdo_pgsql
 
 # Install application dependencies using Composer
-#RUN composer install --no-interaction --optimize-autoloader
+RUN composer install --no-interaction --optimize-autoloader
 
-#CMD ["php-fpm"]
+CMD ["php-fpm"]
 
-#EXPOSE 9000
+EXPOSE 9000
