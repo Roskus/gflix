@@ -24,7 +24,7 @@ RUN apt-get update && \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install PHP extensions required by your application
-RUN docker-php-ext-install bcmath xml mbstring \
+RUN docker-php-ext-install bcmath xml \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo pgsql pdo_pgsql
 
@@ -41,7 +41,7 @@ RUN a2enmod rewrite
 
 #RUN if [ "${APP_ENV}" = "local" ]; then cp .env.example .env && php artisan key:generate fi
 
-RUN php artisan migrate
+RUN php artisan migrate --force
 
 RUN service apache2 start
 
