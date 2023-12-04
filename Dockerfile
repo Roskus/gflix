@@ -38,9 +38,7 @@ RUN chown -R $USER:www-data /var/www/gflix
 # Set up Apache virtual host
 COPY apache.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
-#RUN a2enmod ssl
 
-COPY .env.example .env
 RUN php artisan key:generate
 RUN php artisan migrate
 
