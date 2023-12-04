@@ -1,5 +1,4 @@
 FROM php:8.0-apache
-
 WORKDIR /var/www/gflix
 
 # Set the working directory in the container
