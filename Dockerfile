@@ -1,4 +1,5 @@
 FROM php:8.0-apache
+
 WORKDIR /var/www/gflix
 
 # Set the working directory in the container
@@ -38,7 +39,8 @@ RUN chown -R $USER:www-data /var/www/gflix
 COPY apache.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 
-RUN php artisan key:generate
+RUN if [ "${APP_ENV}" = "local" ]; then cp .env.example .env && php artisan key:generate fi
+
 RUN php artisan migrate
 
 RUN service apache2 start
