@@ -42,6 +42,7 @@ RUN a2enmod rewrite
 
 COPY .env.example .env
 RUN php artisan key:generate
+RUN php artisan migrate
 
 RUN service apache2 start
 
