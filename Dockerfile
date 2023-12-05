@@ -39,8 +39,6 @@ RUN chown -R $USER:www-data /var/www/gflix
 COPY apache.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 
-#RUN if [ "${APP_ENV}" = "local" ]; then cp .env.example .env && php artisan key:generate fi
-
 RUN php artisan migrate --force
 
 RUN service apache2 start
