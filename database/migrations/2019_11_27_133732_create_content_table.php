@@ -16,6 +16,13 @@ class CreateContentTable extends Migration
     {
         Schema::create('content', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name', 120);
+            $table->string('cover', 255)->nullable();
+            $table->string('wallpaper', 255)->nullable();
+            $table->string('description', 255)->nullable();
+            $table->tinyInteger('year')->nullable();
+            $table->string('trailer_url', 255)->nullable();
+            $table->string('url', 255);
             $table->timestamps();
         });
     }

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Content;
 use Illuminate\Http\Request;
 
 class WatchController extends Controller
 {
-    public function player()
+    public function player(Request $request, int $id)
     {
-        return view('player');
+        $content = Content::find($id);
+        $data['content'] = $content;
+        return view('player', $data);
     }
 }

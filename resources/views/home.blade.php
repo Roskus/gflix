@@ -14,17 +14,16 @@
               @if(!empty($latest_contents))
                   @foreach($latest_contents as $content)
                   <div class="carousel-item  @if($loop->first) active @endif">
-                        <img src="/asset/upload/{{ $content->cover_file }}" class="d-block w-100" alt="...">
+                        <img src="/asset/upload/{{ $content->wallpaper }}" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h1>
+                            <h1 class="text-white">
                                 <a href="/watch/{{ $content->id }}">{{ $content->name }}</a>
                             </h1>
-                            <p>StarWars</p>
+                            <p>{{ $content->description }}</p>
                         </div>
                   </div>
                   @endforeach
               @endif
-
             </div>
             <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
