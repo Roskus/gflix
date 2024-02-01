@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid p-0">
     <div class="row-fluid justify-content-center">
         <div class="bd-example">
           <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -16,8 +16,8 @@
                   <div class="carousel-item  @if($loop->first) active @endif">
                         <img src="/asset/upload/{{ $content->wallpaper }}" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h1 class="text-white">
-                                <a href="/watch/{{ $content->id }}">{{ $content->name }}</a>
+                            <h1>
+                                <a href="/watch/{{ $content->id }}" class="text-white">{{ $content->name }}</a>
                             </h1>
                             <p>{{ $content->description }}</p>
                         </div>
