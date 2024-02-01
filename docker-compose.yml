@@ -8,6 +8,8 @@ services:
             - app
         depends_on:
             - db
+        volumes:
+            - .:/var/www/gflix
         ports:
             - "80:80"
     db:

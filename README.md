@@ -1,5 +1,11 @@
 # Gflix
-Netflix clone Site based in Laravel 8
+Netflix clone Site based in Laravel 9
+
+## Technologies
+* PHP 8.2
+* Laravel 9
+* Twitter bootstrap
+* Postgres
 
 ## Setup
 Construct docker image
