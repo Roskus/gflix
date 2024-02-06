@@ -3,26 +3,21 @@
 @section('content')
 <div class="container-fluid">
 <div class="row-fluid">
-    @php
-        $video = $content->videos->first();
-    @endphp
-    @isset($video)
     <video id="video" controls preload="metadata" class="col">
         <source src="{{ asset('storage/'.$video->path.'/'.$video->src) }}" type="video/mp4">
         <track label="Español" kind="subtitles" srclang="es" src="{{ asset('storage/'.$video->path.'/'.$video->slug) }}.vtt" default>
         <track label="English" kind="subtitles" srclang="en" src="{{ asset('storage/'.$video->path.'/'.$video->slug) }}_en.vtt">
     </video>
-    @endisset
     <section class="container-fluid">
         <div class="row">
             <div class="col-2">
-                @if(isset($content->cover) && isset($video))
-                <img src="{{ asset('storage/'.$video->path.'/'.$content->cover) }}" alt="{{ $content->name }}" class="img-fluid">
-                @endif
+                @isset($video->content->cover)
+                <img src="{{ asset('storage/'.$video->path.'/'.$video->content->cover) }}" alt="{{ $video->content->name }}" class="img-fluid">
+                @endisset
             </div>
             <div class="col-10">
-                <h1 class="text-white">{{ $content->name }}</h1>
-                <p>{{ $content->description }}</p>
+                <h1 class="text-white">{{ $video->content->name }}</h1>
+                <p>{{ $video->content->description }}</p>
             </div>
         </div>
     </section>

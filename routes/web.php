@@ -22,6 +22,6 @@ Route::get('/clear-cache', function() {
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 
 //@ŧodo move to logged section
-Route::get('/watch/{id}', [\App\Http\Controllers\WatchController::class, 'player']);
+Route::get('/watch/{id}', [\App\Http\Controllers\WatchController::class, 'player'])->middleware('auth');
 
 Auth::routes();
