@@ -1,9 +1,9 @@
 # Gflix
-Netflix clone Site based in Laravel 9
+Netflix clone Site based in Laravel
 
 ## Technologies
 * PHP 8.2
-* Laravel 9
+* Laravel 10
 * Twitter bootstrap
 * Postgres
 
@@ -23,3 +23,8 @@ Docker-compose
 docker-compose build
 docker-compose up -d
 ```
+
+## Utils
+Online Subtitle format converter from .srt -> .vtt
+
+https://www.happyscribe.com/subtitle-tools/convert-srt-to-vtt
