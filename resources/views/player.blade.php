@@ -17,6 +17,7 @@
             </div>
             <div class="col-10">
                 <h1 class="text-white">{{ $video->content->name }}</h1>
+                @isset($video->name)<h2 class="text-white">{{ $video->name }}</h2>@endisset
                 <p>{{ $video->content->description }}</p>
             </div>
         </div>

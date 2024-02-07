@@ -18,6 +18,7 @@ class CreateVideoTable extends Migration
             $table->unsignedBigInteger('content_id')->nullable();
             $table->string('path', 255);
             $table->string('src', 255);
+            $table->string('name', 120)->nullable();
             $table->string('slug', 255);
             $table->char('lang', 2);
             $table->timestamps();

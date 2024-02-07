@@ -9,6 +9,7 @@ services:
         depends_on:
             - db
         volumes:
+            - ./etc/.bashrc:/root/.bashrc
             - .:/var/www/gflix
         ports:
             - "80:80"

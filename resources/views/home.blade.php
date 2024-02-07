@@ -5,11 +5,17 @@
     <div class="row-fluid justify-content-center">
         <div class="bd-example">
           <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            @if(!empty($latest_contents))
             <ol class="carousel-indicators">
-              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                @php $i = 0; @endphp
+                @foreach($latest_contents as $content)
+                  <li data-target="#carouselExampleCaptions" data-slide-to="{{ $i }}" class="active"></li>
+                    @php
+                    $i++;
+                    @endphp
+                @endforeach
             </ol>
+            @endif
             <div class="carousel-inner">
               @if(!empty($latest_contents))
                   @foreach($latest_contents as $content)
