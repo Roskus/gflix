@@ -23,7 +23,7 @@
                         <img src="/asset/upload/{{ $content->wallpaper }}" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h1>
-                                <a href="/watch/{{ $content->id }}" class="text-white">{{ $content->name }}</a>
+                                <a href="{{ $content->url }}" class="text-white">{{ $content->name }}</a>
                             </h1>
                             <p>{{ $content->description }}</p>
                         </div>

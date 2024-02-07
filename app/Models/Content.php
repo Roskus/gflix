@@ -11,6 +11,11 @@ class Content extends Model
 {
     protected $table = 'content';
 
+    protected $fillable = [
+        // Otros atributos asignables masivamente
+        'type',
+        ''
+    ];
     public function getLatest($limit = 5)
     {
 	    return Content::orderBy('created_at', 'DESC')->limit($limit)->get();

@@ -14,6 +14,6 @@ class WatchController extends Controller
     {
         $video = Video::findOrFail($id);
         $data['video'] = $video;
-        return view('player', $data);
+        return view('watch', $data);
     }
 }
