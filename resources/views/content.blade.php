@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-2">
                         @isset($content->cover)
-                            <img src="{{ asset('storage/'.$video->path.'/'.$content->cover) }}" alt="{{ $content->name }}" class="img-fluid">
+                            <img src="{{ asset('storage/'.$content->type.'/'.$content->year.'/'.$content->cover) }}" alt="{{ $content->name }}" class="img-fluid">
                         @endisset
                     </div>
                     <div class="col-10">
