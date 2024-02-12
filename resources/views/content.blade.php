@@ -27,7 +27,8 @@
         </div>
         @if($content->type == 'series')
         <div class="row-fluid">
-            <table>
+            <section class="container-fluid">
+            <table class="table table-dark mt-4">
             <thead>
             <tr>
                 <th>{{ __('Episodes') }}</th>
@@ -43,6 +44,7 @@
             @endforeach
             </tbody>
             </table>
+            </section>
         </div>
         @endif
     </div>
