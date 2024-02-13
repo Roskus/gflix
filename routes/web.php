@@ -24,4 +24,5 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 Auth::routes();
 Route::get('/{slug}', [\App\Http\Controllers\ContentController::class, 'detail'])->middleware('auth');
 Route::get('/category/{type}', [\App\Http\Controllers\CategoryController::class, 'index'])->middleware('auth');
-Route::get('/watch/{id}', [\App\Http\Controllers\WatchController::class, 'player'])->middleware('auth');
+Route::get('/watch/{id}', [\App\Http\Controllers\WatchController::class, 'player'])->middleware('auth')
+    ->name('watch');
