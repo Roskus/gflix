@@ -28,7 +28,7 @@
         @if($content->type == 'series')
         <div class="row-fluid">
             <section class="container-fluid">
-            <table class="table table-dark mt-4">
+            <table class="table table-dark table-striped mt-4">
             <thead>
             <tr>
                 <th>{{ __('Episodes') }}</th>
