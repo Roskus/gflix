@@ -2,16 +2,16 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="row-fluid">
+        <div class="row">
             @include('player', ['nextChapterUrl' => $nextChapterUrl])
         </div>
-        <div class="row-fluid">
-            @isset($video->name)<h2 class="text-white">{{ $video->name }}</h2>@endisset
-            @isset($video->description)
-                <p>{{ $video->description }}</p>
-            @else
-                <p>{{ $video->content->description }}</p>
-            @endisset
+        <div class="row mt-3 mb-3">
+            <div class="col">
+                @isset($video->name)
+                <h2 class="text-white mb-2">{{ $video->name }}</h2>
+               @endisset
+                <p class="text-white-50">{{ $video->description ?? $video->content->description }}</p>
+            </div>
         </div>
     </div>
 @endsection

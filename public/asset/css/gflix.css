@@ -12,3 +12,10 @@ body {
     color: #fff;
     font-weight: bold;
 }
+
+/* Home */
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text readability */
+    padding: 1rem; /* Spacing around text */
+    border-radius: 0.5rem; /* Optional: rounds corners of the caption background */
+}

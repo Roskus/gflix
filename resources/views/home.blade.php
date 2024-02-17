@@ -16,6 +16,7 @@
                 @endforeach
             </ol>
             @endif
+
             <div class="carousel-inner">
               @if(!empty($latest_contents))
                   @foreach($latest_contents as $content)

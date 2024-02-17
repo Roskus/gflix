@@ -14,13 +14,11 @@
                         @endisset
                     </div>
                     <div class="col-10">
-                        <h1 class="text-white">{{ $content->name }}</h1>
-                        @isset($video->name)<h2 class="text-white">{{ $video->name }}</h2>@endisset
-                        @isset($video->description)
-                            <p>{{ $video->description }}</p>
-                        @else
-                            <p>{{ $content->description }}</p>
+                        <h1 class="text-white mb-2">{{ $content->name }}</h1>
+                        @isset($video->name)
+                            <h2 class="text-white">{{ $video->name }}</h2>
                         @endisset
+                        <p class="text-white-50">{{ $video->description ?? $content->description }}</p>
                     </div>
                 </div>
             </section>
