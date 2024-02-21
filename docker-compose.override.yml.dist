@@ -1,0 +1,6 @@
+version: "3.9"
+services:
+  php:
+    volumes:
+      - /media/gustavo/KingData/series:/var/www/gflix/storage/app/public/series
+      - /media/gustavo/KingData/movies:/var/www/gflix/storage/app/public/movies

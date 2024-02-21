@@ -1,0 +1,9 @@
+# Exclude the directory "logs" and its contents
+logs/
+
+# Exclude all files and directories that end with ".log"
+*.log
+
+# Exclude all mp4 files and directories that end with ".mp4"
+*.mp4
+

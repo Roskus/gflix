@@ -33,3 +33,7 @@ Convert video format
 ```terminal
 ffmpeg -i halo_s01e05.avi halo_s01e05.mp4
 ```
+## Create Self-Signed SSL Certificate
+```terminal
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./etc/ssl/private/gflix.key -out ./etc/ssl/certs/gflix.crt
+```

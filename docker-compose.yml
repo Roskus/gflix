@@ -10,6 +10,8 @@ services:
             - db
         volumes:
             - ./etc/.bashrc:/root/.bashrc
+            - ./etc/ssl:/etc/ssl/
+            - ./storage/app/public:/var/www/gflix/storage/app/public
             - .:/var/www/gflix
         ports:
             - "80:80"
