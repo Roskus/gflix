@@ -33,7 +33,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a href="{{ url('/category/movie') }}" class="nav-link">{{ __('Movies') }}</a>
+                            <a href="{{ url('/category/movies') }}" class="nav-link">{{ __('Movies') }}</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('/category/series') }}" class="nav-link">{{ __('Series') }}</a>

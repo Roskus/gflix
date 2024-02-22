@@ -10,11 +10,13 @@ services:
             - db
         volumes:
             - ./etc/.bashrc:/root/.bashrc
-            - ./etc/ssl:/etc/ssl/
+            - ./etc/ssl/certs:/etc/ssl/certs
+            - ./etc/ssl/private:/etc/ssl/private
             - ./storage/app/public:/var/www/gflix/storage/app/public
             - .:/var/www/gflix
         ports:
             - "80:80"
+            - "443:443"
     db:
         image: postgres:latest
         container_name: db

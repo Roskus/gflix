@@ -3,6 +3,7 @@ FROM php:8.3-apache
 WORKDIR /var/www/gflix
 
 # Set the working directory in the container
+ADD ./etc/ssl /etc/ssl
 ADD . /var/www/gflix
 
 ENV APACHE_DOCUMENT_ROOT /var/www/gflix/public
@@ -18,10 +19,9 @@ RUN apt-get update && \
     libonig-dev \
     unzip \
     vim \
-    nano
-
-# Install PHP extensions required by your application
-RUN docker-php-ext-install bcmath xml \
+    nano \
+    && rm -rf /var/lib/apt/lists/* \
+    && docker-php-ext-install bcmath xml \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo pgsql pdo_pgsql
 
@@ -33,20 +33,16 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 # Install application dependencies using Composer
 RUN composer install --no-interaction --optimize-autoloader
 
-# Change user
-USER root
+# Check if www-data user exists and create if not
+RUN getent group www-data || groupadd -g 33 www-data
+RUN getent passwd www-data || useradd -u 33 -g www-data -d /var/www -s /usr/sbin/nologin www-data
 
 # Fix permissions
-RUN chmod -R 775 /var/www/gflix
 RUN chown -R www-data:www-data /var/www/gflix
 
 # Set up Apache virtual host
-COPY apache.conf /etc/apache2/sites-available/000-default.conf
+COPY ./etc/apache2/apache.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod ssl rewrite
-
-#RUN php artisan migrate --force
-
-RUN service apache2 start
 
 EXPOSE 80
 EXPOSE 443
