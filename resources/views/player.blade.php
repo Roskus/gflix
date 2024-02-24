@@ -1,8 +1,10 @@
-<video id="video" controls preload="metadata" class="col">
-    <source src="{{ asset('storage/'.$video->path.'/'.$video->src) }}" type="video/mp4">
-    <track label="Español" kind="subtitles" srclang="es" src="{{ asset('storage/'.$video->path.'/'.$video->slug) }}.vtt" default>
-    <track label="English" kind="subtitles" srclang="en" src="{{ asset('storage/'.$video->path.'/'.$video->slug) }}_en.vtt">
-</video>
+<div class="embed-responsive embed-responsive-16by9 mt-2">
+    <video id="video" controls preload="metadata" class="embed-responsive-item" autoplay>
+        <source src="{{ asset('storage/'.$video->path.'/'.$video->src) }}" type="video/mp4">
+        <track label="Español" kind="subtitles" srclang="es" src="{{ asset('storage/'.$video->path.'/'.$video->slug) }}.vtt" default>
+        <track label="English" kind="subtitles" srclang="en" src="{{ asset('storage/'.$video->path.'/'.$video->slug) }}_en.vtt">
+    </video>
+</div>
 @isset($nextChapterUrl)
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -11,14 +13,14 @@
 
         video.ontimeupdate = function() {
             var timeLeft = video.duration - video.currentTime;
-            if (timeLeft <= 50 && !notified) {
+            if (timeLeft <= 60 && !notified) {
                 // Muestra la notificación de Bootstrap aquí
                 showBootstrapNotification();
                 notified = true; // Evita que la notificación se muestre más de una vez
                 // Espera unos segundos antes de redirigir para que el usuario pueda ver la notificación
                 setTimeout(function() {
                     window.location.href = '{{ $nextChapterUrl }}'; // Asegúrate de que $nextChapterUrl esté definida
-                }, 5000); // Espera 5 segundos antes de redirigir
+                }, 4000); // Espera 4 segundos antes de redirigir
             }
         };
     });

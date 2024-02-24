@@ -3,7 +3,9 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            @include('player', ['nextChapterUrl' => $nextChapterUrl])
+            <div class="col">
+                @include('player', ['nextChapterUrl' => $nextChapterUrl])
+            </div>
         </div>
         <div class="row mt-3 mb-3">
             <div class="col">

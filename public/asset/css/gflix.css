@@ -13,9 +13,17 @@ body {
     font-weight: bold;
 }
 
+
 /* Home */
 .carousel-caption {
     background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text readability */
     padding: 1rem; /* Spacing around text */
     border-radius: 0.5rem; /* Optional: rounds corners of the caption background */
+}
+
+/* Player */
+video {
+    width: 100% !important;
+    height: auto !important; /* Esto mantendrá la relación de aspecto */
+    max-height: 90vh; /* Opcional: Esto limitará la altura del video al viewport */
 }

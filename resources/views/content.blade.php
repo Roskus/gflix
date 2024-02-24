@@ -3,7 +3,9 @@
 @section('content')
     <div class="container-fluid">
         <div class="row-fluid">
-            @include('player')
+            <div class="col">
+                @include('player')
+            </div>
         </div>
         <div class="row-fluid">
             <section class="container-fluid">

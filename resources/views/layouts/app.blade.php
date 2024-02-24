@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-bs-theme="dark">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,24 +14,25 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('asset/css/gflix.css') }}">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
-            <div class="container">
+        <nav class="navbar  navbar-expand-lg navbar-dark bg-dark shadow-sm">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('asset/img/gflix_logo.png')}}" alt="{{ config('app.name', 'Laravel') }}" height="40">
                 </a>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a href="{{ url('/category/movies') }}" class="nav-link">{{ __('Movies') }}</a>
                         </li>
@@ -41,7 +42,8 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <div class="ms-auto">
+                        <ul class="navbar-nav">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('register'))
@@ -54,24 +56,34 @@
                                 </li>
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
+                                <div>
+                                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('profile') }}">{{ __('Profile') }}</a>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                        </li>
+                                    </ul>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
                             </li>
                         @endguest
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -82,12 +94,13 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
-    $('.carousel').carousel({
-        interval: 2000
-    });
+        const myCarouselElement = document.querySelector('#carousel')
+        const carousel = new bootstrap.Carousel(myCarouselElement, {
+            interval: 600,
+            touch: false
+        })
     </script>
 </body>
 </html>
