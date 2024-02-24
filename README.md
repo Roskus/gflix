@@ -26,8 +26,12 @@ docker-compose up -d
 
 ## Utils
 Online Subtitle format converter from .srt -> .vtt
-
 https://www.happyscribe.com/subtitle-tools/convert-srt-to-vtt
+
+Covert subitule with ffmpeg
+```terminal
+ffmpeg -i halo_s01e05.srt halo_s01e05.vtt
+```
 
 Convert video format
 ```terminal
