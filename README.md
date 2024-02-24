@@ -1,5 +1,6 @@
 # Gflix
 Netflix clone Site based in Laravel
+![Screenshoot](./docs/screenshoot.png)
 
 ## Technologies
 * PHP 8.2
