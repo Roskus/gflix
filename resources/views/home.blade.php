@@ -6,17 +6,17 @@
         <div class="bd-example">
           <div id="carousel" class="carousel carousel-dark slide" data-ride="carousel">
             @if(!empty($latest_contents))
-                  <div class="carousel-indicators">
-                      @php $i = 0; @endphp
-                      @foreach($latest_contents as $content)
-                      <button type="button" data-bs-target="#carousel" data-bs-slide-to="{{ $i }}"
-                              @if($i == 0)class="active"@endif aria-current="true" aria-label="{{ $content->name }}">
-                      </button>
-                          @php
-                              $i++;
-                          @endphp
-                      @endforeach
-                  </div>
+              <div class="carousel-indicators">
+                  @php $i = 0; @endphp
+                  @foreach($latest_contents as $content)
+                  <button type="button" data-bs-target="#carousel" data-bs-slide-to="{{ $i }}"
+                          @if($i == 0)class="active"@endif aria-current="true" aria-label="{{ $content->name }}">
+                  </button>
+                      @php
+                          $i++;
+                      @endphp
+                  @endforeach
+              </div>
             @endif
 
             <div class="carousel-inner">
@@ -28,24 +28,23 @@
                             <h1>
                                 <a href="{{ $content->url }}" class="text-white">{{ $content->name }}</a>
                             </h1>
-                            <p>{{ $content->description }}</p>
+                            <p class="text-white">{{ $content->description }}</p>
                         </div>
                   </div>
                   @endforeach
               @endif
             </div>
-            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
 
-        <div class="col-md-10">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden"> {{ __('Previous') }}</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel"  data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">{{ __('Next') }}</span>
+            </button>
+          </div>
         </div>
     </div>
 </div>
