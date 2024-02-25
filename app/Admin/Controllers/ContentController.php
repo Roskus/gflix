@@ -81,8 +81,8 @@ class ContentController extends AdminController
         $form->text('description', __('Description'));
         $form->number('year', __('Year'));
         $form->text('trailer_url', __('Trailer url'));
-        $form->url('url', __('Url'));
-        $form->text('type', __('Type'));
+        $form->text('url', __('Url'));
+        $form->select('type', __('Type'))->options(['','movies', 'series'])->rules('required');
 
         return $form;
     }

@@ -72,10 +72,10 @@ class VideoController extends AdminController
         $form = new Form(new Video());
 
         $form->number('content_id', __('Content id'));
-        $form->url('src', __('Src'));
-        $form->text('lang', __('Lang'));
-        $form->text('path', __('Path'));
-        $form->text('slug', __('Slug'));
+        $form->text('src', __('Src'))->rules('required');
+        $form->text('lang', __('Lang'))->rules('required');
+        $form->text('path', __('Path'))->rules('required');
+        $form->text('slug', __('Slug'))->rules('required');
         $form->text('name', __('Name'));
 
         return $form;
