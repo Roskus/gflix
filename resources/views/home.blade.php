@@ -3,8 +3,7 @@
 @section('content')
 <div class="container-fluid p-0">
     <div class="row-fluid justify-content-center">
-        <div class="bd-example">
-          <div id="carousel" class="carousel carousel-dark slide" data-ride="carousel">
+        <div id="carousel" class="carousel carousel-dark slide" data-ride="carousel">
             @if(!empty($latest_contents))
               <div class="carousel-indicators">
                   @php $i = 0; @endphp
@@ -44,7 +43,6 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">{{ __('Next') }}</span>
             </button>
-          </div>
         </div>
     </div>
 </div>
