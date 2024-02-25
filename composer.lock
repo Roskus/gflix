@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c822cdd9c30503df632419bc46db747",
+    "content-hash": "14a9d9bcfb4fbb7806acc3f36026f691",
     "packages": [
         {
             "name": "brick/math",
@@ -2851,6 +2851,118 @@
                 "source": "https://github.com/open-admin-org/helpers/tree/v1.0.3"
             },
             "time": "2022-02-17T16:10:25+00:00"
+        },
+        {
+            "name": "open-admin-ext/media-manager",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/open-admin-org/media-manager.git",
+                "reference": "4613f4d4a12f4787ce738000354db7a93649b60c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/open-admin-org/media-manager/zipball/4613f4d4a12f4787ce738000354db7a93649b60c",
+                "reference": "4613f4d4a12f4787ce738000354db7a93649b60c",
+                "shasum": ""
+            },
+            "require": {
+                "open-admin-org/open-admin": "~1.0",
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "OpenAdmin\\Admin\\Media\\MediaServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OpenAdmin\\Admin\\Media\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "open-admin",
+                    "email": "info@open-admin.org"
+                }
+            ],
+            "description": "Media manager for open-admin",
+            "homepage": "https://github.com/open-admin-org/media-manager",
+            "keywords": [
+                "manager",
+                "media",
+                "open-admin"
+            ],
+            "support": {
+                "issues": "https://github.com/open-admin-org/media-manager/issues",
+                "source": "https://github.com/open-admin-org/media-manager/tree/v1.0.3"
+            },
+            "time": "2023-01-10T13:46:10+00:00"
+        },
+        {
+            "name": "open-admin-ext/scheduling",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/open-admin-org/scheduling.git",
+                "reference": "c6f9528c33bc179e5813cbddacc0f31b1e262216"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/open-admin-org/scheduling/zipball/c6f9528c33bc179e5813cbddacc0f31b1e262216",
+                "reference": "c6f9528c33bc179e5813cbddacc0f31b1e262216",
+                "shasum": ""
+            },
+            "require": {
+                "open-admin-org/open-admin": "~1.0",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "laravel/laravel": "~5.5",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "OpenAdmin\\Admin\\Scheduling\\SchedulingServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OpenAdmin\\Admin\\Scheduling\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "open-admin",
+                    "email": "info@open-admin.org"
+                }
+            ],
+            "description": "Task scheduling extension for open-admin",
+            "homepage": "https://github.com/open-admin-org/scheduling",
+            "keywords": [
+                "open-admin",
+                "scheduling",
+                "task"
+            ],
+            "support": {
+                "issues": "https://github.com/open-admin-org/scheduling/issues",
+                "source": "https://github.com/open-admin-org/scheduling/tree/v1.0.0"
+            },
+            "time": "2022-02-10T23:40:40+00:00"
         },
         {
             "name": "open-admin-org/open-admin",

@@ -7,6 +7,7 @@ Netflix clone Site based in Laravel
 * Laravel 10
 * Twitter bootstrap
 * Postgres
+* [OpenAdmin](https://github.com/open-admin-org/open-admin) 
 
 ## Setup
 Construct docker image

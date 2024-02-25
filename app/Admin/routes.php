@@ -12,5 +12,6 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index')->name('home');
-
+    $router->resource('/content', \App\Admin\Controllers\ContentController::class);
+    $router->resource('/video', \App\Admin\Controllers\VideoController::class);
 });

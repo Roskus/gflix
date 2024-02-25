@@ -12,9 +12,14 @@ class Content extends Model
     protected $table = 'content';
 
     protected $fillable = [
-        // Otros atributos asignables masivamente
+        'name',
+        'cover',
+        'wallpaper',
+        'description',
+        'year',
+        'trailer_url',
+        'url',
         'type',
-        ''
     ];
     public function getLatest($limit = 5)
     {
