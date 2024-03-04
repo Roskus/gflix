@@ -20,7 +20,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm p-0">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm p-0">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('asset/img/gflix_logo.png')}}" alt="{{ config('app.name', 'Laravel') }}" height="40">
