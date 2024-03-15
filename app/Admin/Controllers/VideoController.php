@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Models\Content;
 use OpenAdmin\Admin\Controllers\AdminController;
 use OpenAdmin\Admin\Form;
 use OpenAdmin\Admin\Grid;
@@ -71,9 +72,18 @@ class VideoController extends AdminController
     {
         $form = new Form(new Video());
 
-        $form->number('content_id', __('Content id'));
+
+        $form->select('content_id')->options(function ($id) {
+            $content = Content::find($id);
+
+            if ($content) {
+                return [$content->id => $content->name];
+            }
+        })->ajax('/admin/api/content');
+
+        //$form->number('content_id', __('Content id'));
         $form->text('src', __('Src'))->rules('required');
-        $form->text('lang', __('Lang'))->rules('required');
+        $form->text('lang', __('Lang'))->rules('required|min:2|max:2');
         $form->text('path', __('Path'))->rules('required');
         $form->text('slug', __('Slug'))->rules('required');
         $form->text('name', __('Name'));

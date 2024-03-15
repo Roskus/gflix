@@ -75,14 +75,19 @@ class ContentController extends AdminController
     {
         $form = new Form(new Content());
 
-        $form->text('name', __('Name'));
-        $form->image('cover', __('Cover'));
+        $form->text('name', __('Name'))->rules('required');
+        $form->text('cover', __('Poster'));
         $form->text('wallpaper', __('Wallpaper'));
-        $form->text('description', __('Description'));
-        $form->number('year', __('Year'));
+        $form->textarea('description', __('Description'))->rules('max:255');
+        $form->number('year', __('Year'))->rules('required')->min(1895);
         $form->text('trailer_url', __('Trailer url'));
         $form->text('url', __('Url'));
-        $form->select('type', __('Type'))->options(['','movies', 'series'])->rules('required');
+        $form->select('type', __('Type'))->options(
+            [
+                '' => '',
+                'movies' => 'movies',
+                'series' => 'series',
+            ])->rules('required');
 
         return $form;
     }
