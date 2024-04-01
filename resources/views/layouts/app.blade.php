@@ -20,6 +20,7 @@
 </head>
 <body>
     <div id="app">
+        <header data-bs-theme="dark">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm p-0">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -87,6 +88,7 @@
                 </div>
             </div>
         </nav>
+        </header>
 
         <main>
             @yield('content')
