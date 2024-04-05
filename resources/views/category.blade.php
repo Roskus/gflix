@@ -18,7 +18,15 @@
                     <p class="card-text text-truncate">{{ $content->description }}</p>
                 </div>
                 <div class="card-footer text-muted">
-                    {{ $content->year }}
+                    <div class="row">
+                        <div class="col">{{ $content->year }}</div>
+                        @isset($content->category)
+                        <div class="col text-end">
+                            <a href="#" class="text-decoration-none">{{ $content->category->name }}</a>
+                        </div>
+                        @endisset
+                    </div>
+
                 </div>
             </div>
         </div>
