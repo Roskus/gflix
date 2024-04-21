@@ -16,8 +16,10 @@ class CreateContentTable extends Migration
     {
         Schema::create('content', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('type', 20)->nullable()->comment('Indicates if the content is a movie or series');
+            $table->string('type', 20)->nullable()
+                ->comment('Indicates if the content is a movie or series');
             $table->string('name', 120);
+            $table->string('original_name', 120)->nullable();
             $table->string('cover', 255)->nullable();
             $table->string('wallpaper', 255)->nullable();
             $table->string('description', 255)->nullable();

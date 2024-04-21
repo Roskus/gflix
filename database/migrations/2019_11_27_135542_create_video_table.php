@@ -19,6 +19,7 @@ class CreateVideoTable extends Migration
             $table->string('path', 255);
             $table->string('src', 255);
             $table->string('name', 120)->nullable();
+            $table->string('original_name', 120)->nullable();
             $table->string('slug', 255);
             $table->char('lang', 2);
             $table->timestamps();
