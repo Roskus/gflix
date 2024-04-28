@@ -40,6 +40,16 @@ Convert video format
 ffmpeg -i halo_s01e05.avi halo_s01e05.mp4
 ```
 ## Create Self-Signed SSL Certificate
-```terminal
+```bash
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./etc/ssl/private/gflix.key -out ./etc/ssl/certs/gflix.crt
+```
+
+## Backup a PostgreSQL database
+```bash
+pg_dump -U postgres -d gflix > gflix.sql
+```
+
+### Install postgres client
+```bash
+sudo apt-get install postgresql-client
 ```
