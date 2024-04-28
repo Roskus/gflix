@@ -7,9 +7,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 
-class Content extends Model
+class Content extends Model implements Sortable
 {
+    use SortableTrait;
     protected $table = 'content';
 
     protected $fillable = [
@@ -23,6 +26,12 @@ class Content extends Model
         'url',
         'type',
     ];
+
+    public $sortable = [
+        'order_column_name' => 'name',
+        'sort_when_creating' => true,
+    ];
+
     public function getLatest($limit = 5)
     {
 	    return Content::orderBy('created_at', 'DESC')->limit($limit)->get();
