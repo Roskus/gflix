@@ -12,6 +12,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^4.0",
         "open-admin-ext/helpers": "^1.0",
+        "open-admin-ext/log-viewer": "^1.0",
         "open-admin-ext/media-manager": "^1.0",
         "open-admin-ext/scheduling": "^1.0",
         "open-admin-org/open-admin": "^1.0"

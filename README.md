@@ -44,6 +44,12 @@ ffmpeg -i halo_s01e05.avi halo_s01e05.mp4
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./etc/ssl/private/gflix.key -out ./etc/ssl/certs/gflix.crt
 ```
 
+## Admin
+### Create user
+```bash
+php artisan admin:create-user
+```
+
 ## Backup a PostgreSQL database
 ```bash
 pg_dump -U postgres -d gflix > gflix.sql

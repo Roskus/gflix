@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37acd373be47ff7e9b2e7351d40ba13c",
+    "content-hash": "24aa6b09dc3e8870238cd15916224a1e",
     "packages": [
         {
             "name": "brick/math",
@@ -2858,6 +2858,63 @@
                 "source": "https://github.com/open-admin-org/helpers/tree/v1.0.3"
             },
             "time": "2022-02-17T16:10:25+00:00"
+        },
+        {
+            "name": "open-admin-ext/log-viewer",
+            "version": "v1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/open-admin-org/log-viewer.git",
+                "reference": "325835ca8aae9601fcff7a9eae0d0cd4bba69dbd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/open-admin-org/log-viewer/zipball/325835ca8aae9601fcff7a9eae0d0cd4bba69dbd",
+                "reference": "325835ca8aae9601fcff7a9eae0d0cd4bba69dbd",
+                "shasum": ""
+            },
+            "require": {
+                "open-admin-org/open-admin": ">=1.0.12",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "OpenAdmin\\Admin\\LogViewer\\LogViewerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OpenAdmin\\Admin\\LogViewer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "open-admin",
+                    "email": "info@open-admin.org"
+                }
+            ],
+            "description": "Log viewer for open admin",
+            "homepage": "https://github.com/open-admin-org/log-viewer",
+            "keywords": [
+                "Viewer",
+                "log",
+                "open-admin"
+            ],
+            "support": {
+                "issues": "https://github.com/open-admin-org/log-viewer/issues",
+                "source": "https://github.com/open-admin-org/log-viewer/tree/v1.0.6"
+            },
+            "time": "2023-05-31T10:08:24+00:00"
         },
         {
             "name": "open-admin-ext/media-manager",

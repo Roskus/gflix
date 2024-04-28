@@ -410,6 +410,10 @@ return [
     |
     */
     'extensions' => [
-
+        'log-viewer' => [
+            'bypass_protected_urls' => true,
+            //'bypass_protected_urls_find' => ['.'],          // default ['.']
+            //'bypass_protected_urls_replace' => ['[dot]'],   // default ['[dot]']
+        ]
     ],
 ];
