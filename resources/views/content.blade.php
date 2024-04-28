@@ -20,6 +20,7 @@
                         @isset($video->name)
                             <h2 class="text-white">{{ $video->name }}</h2>
                         @endisset
+                        <p class="text-white-50">{{ $content->year }}</p>
                         <p class="text-white-50">{{ $video->description ?? $content->description }}</p>
                     </div>
                 </div>
