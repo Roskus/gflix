@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,8 +23,10 @@ Route::get('/clear-cache', function() {
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 
 Auth::routes();
-Route::get('/profile', [\App\Http\Controllers\Profile\ProfileDetailController::class, 'detail'])->name('profile')->middleware('auth');
+Route::get('/profile', [\App\Http\Controllers\Profile\ProfileDetailController::class, 'detail'])
+    ->name('profile')->middleware('auth');
+Route::get('/{type}', [\App\Http\Controllers\CategoryController::class, 'index'])->middleware('auth')
+    ->where('type', 'movies|series');
 Route::get('/{slug}', [\App\Http\Controllers\ContentController::class, 'detail'])->middleware('auth');
-Route::get('/category/{type}', [\App\Http\Controllers\CategoryController::class, 'index'])->middleware('auth');
 Route::get('/watch/{id}', [\App\Http\Controllers\WatchController::class, 'player'])->middleware('auth')
     ->name('watch');

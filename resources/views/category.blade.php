@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row mt-4">
     @foreach($contents as $content)
-        <div class="col-2 mb-4">
+        <div class="col-6 col-md-3 col-lg-2 mb-4">
             <div class="card h-100 shadow-sm" data-bs-theme="dark">
                 @isset($content->cover)
                     <a href="{{ url($content->url) }}" class="">

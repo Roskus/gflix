@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="carousel" class="carousel carousel-dark slide" data-ride="carousel">
+<div id="carousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
     @if(!empty($latest_contents))
       <div class="carousel-indicators">
           @php $i = 0; @endphp
           @foreach($latest_contents as $content)
           <button type="button" data-bs-target="#carousel" data-bs-slide-to="{{ $i }}"
-                  @if($i == 0)class="active"@endif aria-current="true" aria-label="{{ $content->name }}">
+                  @if($i == 0)class="active" aria-current="true" @endif aria-label="{{ $content->name }}">
           </button>
               @php
                   $i++;
@@ -20,12 +20,14 @@
       @if(!empty($latest_contents))
           @foreach($latest_contents as $content)
           <div class="carousel-item  @if($loop->first) active @endif">
-                <img src="/asset/upload/{{ $content->wallpaper }}" class="d-block w-100" alt="{{ $content->name }}">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>
-                        <a href="{{ $content->url }}" class="text-white text-decoration-none">{{ $content->name }}</a>
-                    </h1>
-                    <p class="text-white">{{ $content->description }}</p>
+                <img src="/asset/upload/{{ $content->wallpaper }}" class="d-block bd-placeholder-img w-100" alt="{{ $content->name }}">
+                <div class="container">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>
+                            <a href="{{ $content->url }}" class="text-white text-decoration-none">{{ $content->name }}</a>
+                        </h1>
+                        <p class="text-white">{{ $content->description }}</p>
+                    </div>
                 </div>
           </div>
           @endforeach
