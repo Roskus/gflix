@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Content;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class CategoryController
 {
@@ -13,6 +14,8 @@ class CategoryController
     {
         $contents = Content::where('type', $type)->get();
         $data['contents'] = $contents;
+
+        View::share('title', ucfirst($type));
         return view('category', $data);
     }
 }
