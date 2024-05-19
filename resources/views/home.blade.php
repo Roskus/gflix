@@ -1,6 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+.carousel-item img {
+    max-height: 100vh; /* Asegúrate de que las imágenes no excedan la altura de la ventana */
+    object-fit: cover; /* Asegura que las imágenes cubran el contenedor sin distorsionarse */
+    width: 100%;
+}
+
+.carousel {
+    overflow: hidden; /* Esconde cualquier contenido que se desborde */
+}
+</style>
 <div id="carousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
     @if(!empty($latest_contents))
       <div class="carousel-indicators">
