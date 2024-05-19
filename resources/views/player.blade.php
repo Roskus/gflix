@@ -1,5 +1,5 @@
 <div class="embed-responsive embed-responsive-16by9 mt-2">
-    <video id="video" controls preload="metadata" class="embed-responsive-item" autoplay>
+    <video id="video" controls preload="metadata" @isset($video->poster)poster="{{ $video->poster }}"@endisset class="embed-responsive-item" autoplay>
         <source src="{{ asset('storage/'.$video->path.'/'.$video->src) }}" type="video/mp4">
         <track label="Español" kind="subtitles" srclang="es" src="{{ asset('storage/'.$video->path.'/'.$video->slug) }}.vtt" default>
         <track label="English" kind="subtitles" srclang="en" src="{{ asset('storage/'.$video->path.'/'.$video->slug) }}_en.vtt">
