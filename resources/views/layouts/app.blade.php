@@ -103,7 +103,7 @@
     const myCarouselElement = document.querySelector('#carousel')
     if(carousel) {
         const carousel = new bootstrap.Carousel(myCarouselElement, {
-            interval: 1200,
+            interval: 2400,
             touch: false
         });
     }
