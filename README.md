@@ -30,7 +30,7 @@ docker-compose up -d
 Online Subtitle format converter from .srt -> .vtt
 https://www.happyscribe.com/subtitle-tools/convert-srt-to-vtt
 
-Covert subitule with ffmpeg
+Covert subtitle with ffmpeg
 ```terminal
 ffmpeg -i halo_s01e05.srt halo_s01e05.vtt
 ```
@@ -39,6 +39,16 @@ Convert video format
 ```terminal
 ffmpeg -i halo_s01e05.avi halo_s01e05.mp4
 ```
+
+Extract poster from video frame
+```terminal
+ffmpeg -ss 00:04:12 -i wednesday.s01e01.mp4 -vframes 1 -q:v 2 screenshot.png
+```
+
+### Fixing video encoding issues
+Download **HandBrake** https://handbrake.fr
+Important: Check web optimized
+
 ## Create Self-Signed SSL Certificate
 ```bash
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./etc/ssl/private/gflix.key -out ./etc/ssl/certs/gflix.crt
