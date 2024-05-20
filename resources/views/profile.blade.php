@@ -5,7 +5,10 @@
     <header>
         <h1>{{ __('Profile') }}</h1>
     </header>
-    <form method="post">
+
+    <div class="card">
+        <div class="card-body">
+        <form method="post">
         @csrf
         <input type="hidden" name="id" value="{{ $user->id }}">
         <div class="row">
@@ -33,6 +36,8 @@
                 <button type="submit" class="btn btn-primary mt-2">{{ __('Save') }}</button>
             </div>
         </div>
-    </form>
+        </form>
+        </div>
+    </div><!--./card-->
 </main>
 @endsection
