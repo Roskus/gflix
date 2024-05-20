@@ -1,3 +1,10 @@
 {
-    "Login" : "Iniciar sesión"
+    "Action": "Acción",
+    "Adventure": "Aventura",
+    "Comedy": "Comedia",
+    "Episodes": "Episodios",
+    "Login" : "Iniciar sesión",
+    "Logout": "Cerrar sesión",
+    "Movies" : "Películas",
+    "Profile" : "Perfil"
 }

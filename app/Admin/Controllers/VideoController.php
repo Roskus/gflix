@@ -87,8 +87,11 @@ class VideoController extends AdminController
         $form->text('path', __('Path'))->rules('required');
         $form->text('slug', __('Slug'))->rules('required');
         $form->text('name', __('Name'));
+        $form->text('description', __('Description'))->rules('max:255');
         $form->text('poster', __('Poster'));
+        $form->number('duration', __('Duration'));
 
         return $form;
     }
 }
+

@@ -16,7 +16,9 @@ class Video extends Model
         'path',
         'slug',
         'name',
+        'description',
         'poster',
+        'duration',
     ];
 
     public function content()
