@@ -26,12 +26,12 @@
     });
 
     function showBootstrapNotification() {
-        var notificationHtml = '<div class="alert alert-primary" role="alert" style="position: fixed; bottom: 20px; right: 20px;">Próximo capítulo en breve...</div>';
+        let notificationHtml = '<div class="alert alert-primary" role="alert" style="position: fixed; bottom: 20px; right: 20px;">Próximo capítulo en breve...</div>';
         document.body.innerHTML += notificationHtml;
         // Opcional: eliminar la notificación después de un tiempo
         setTimeout(function() {
-            var alerts = document.querySelectorAll('.alert');
-            var lastAlert = alerts[alerts.length - 1];
+            let alerts = document.querySelectorAll('.alert');
+            let lastAlert = alerts[alerts.length - 1];
             if (lastAlert) lastAlert.remove();
         }, 4000); // Elimina la notificación después de 4 segundos
     }
