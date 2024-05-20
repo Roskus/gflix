@@ -40,7 +40,9 @@
             <tr>
                 <td>
                     @isset($vid->poster)
-                    <img src="{{ asset("storage/$vid->poster") }}" alt="{{ $vid->name }}" width="200" class="img-thumbnail img-fluid">
+                    <div>
+                        <img src="{{ asset("storage/$vid->poster") }}" alt="{{ $vid->name }}" width="200" class="img-thumbnail img-fluid">
+                    </div>
                     @endisset
                     <a href="{{ url("watch/$vid->id") }}">{{ $vid->name }}</a>
                 </td>
