@@ -30,7 +30,7 @@
     <div class="container mt-5 pt-5">
         <h3 class="mt-4">{{ __('Episodes') }}</h3>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
             @foreach($content->videos as $episode)
             <div class="col">
                 <div class="card h-100">
@@ -40,10 +40,10 @@
                     <div class="card-body">
                         <h5 class="card-title">
                             <a href="{{ url("watch/$episode->id") }}">{{ $episode->name }}</a>
-                            @isset($episode->description)
-                            <p class="card-text">{{ $episode->description }}</p>
-                            @endisset
                         </h5>
+                        @isset($episode->description)
+                        <p class="card-text">{{ $episode->description }}</p>
+                        @endisset
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">{{ $episode->duration }} min</small>
