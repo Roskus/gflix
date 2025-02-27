@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Open-admin - admin builder based on Laravel.
  * @author z-song <https://github.com/z-song>
