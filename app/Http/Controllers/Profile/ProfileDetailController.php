@@ -14,6 +14,7 @@ class ProfileDetailController extends Controller
     {
         $user = User::find(Auth::user()->id);
         $data['user'] = $user;
+
         return view('profile', $data);
     }
 }

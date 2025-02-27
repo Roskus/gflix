@@ -13,6 +13,7 @@ use Spatie\EloquentSortable\SortableTrait;
 class Content extends Model implements Sortable
 {
     use SortableTrait;
+
     protected $table = 'content';
 
     protected $fillable = [
@@ -34,7 +35,7 @@ class Content extends Model implements Sortable
 
     public function getLatest($limit = 5)
     {
-	    return Content::orderBy('created_at', 'DESC')->limit($limit)->get();
+        return Content::orderBy('created_at', 'DESC')->limit($limit)->get();
     }
 
     public function category(): HasOne

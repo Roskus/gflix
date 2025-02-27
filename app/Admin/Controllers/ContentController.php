@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Admin\Controllers;
 
+use App\Models\Content;
 use OpenAdmin\Admin\Controllers\AdminController;
 use OpenAdmin\Admin\Form;
 use OpenAdmin\Admin\Grid;
 use OpenAdmin\Admin\Show;
-use \App\Models\Content;
 
 class ContentController extends AdminController
 {
@@ -26,7 +26,7 @@ class ContentController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new Content());
+        $grid = new Grid(new Content);
 
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
@@ -46,7 +46,7 @@ class ContentController extends AdminController
     /**
      * Make a show builder.
      *
-     * @param mixed $id
+     * @param  mixed  $id
      * @return Show
      */
     protected function detail($id)
@@ -75,7 +75,7 @@ class ContentController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new Content());
+        $form = new Form(new Content);
 
         $form->text('name', __('Name'))->rules('required');
         $form->text('cover', __('Poster'));

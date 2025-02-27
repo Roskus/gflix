@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Admin\Controllers;
 
 use App\Models\Content;
+use App\Models\Video;
 use OpenAdmin\Admin\Controllers\AdminController;
 use OpenAdmin\Admin\Form;
 use OpenAdmin\Admin\Grid;
 use OpenAdmin\Admin\Show;
-use \App\Models\Video;
 
 class VideoController extends AdminController
 {
@@ -27,7 +27,7 @@ class VideoController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new Video());
+        $grid = new Grid(new Video);
 
         $grid->column('id', __('Id'));
         $grid->column('content_id', __('Content id'));
@@ -45,7 +45,7 @@ class VideoController extends AdminController
     /**
      * Make a show builder.
      *
-     * @param mixed $id
+     * @param  mixed  $id
      * @return Show
      */
     protected function detail($id)
@@ -72,8 +72,7 @@ class VideoController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new Video());
-
+        $form = new Form(new Video);
 
         $form->select('content_id')->options(function ($id) {
             $content = Content::find($id);
@@ -96,4 +95,3 @@ class VideoController extends AdminController
         return $form;
     }
 }
-
