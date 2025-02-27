@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Admin\Controllers;
 
 use OpenAdmin\Admin\Controllers\AdminController;
@@ -35,7 +37,7 @@ class ExampleController extends AdminController
     /**
      * Make a show builder.
      *
-     * @param mixed   $id
+     * @param  mixed  $id
      * @return Show
      */
     protected function detail($id)

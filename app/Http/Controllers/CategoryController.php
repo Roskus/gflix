@@ -16,6 +16,7 @@ class CategoryController
         $data['contents'] = $contents;
 
         View::share('title', ucfirst($type));
+
         return view('category', $data);
     }
 }

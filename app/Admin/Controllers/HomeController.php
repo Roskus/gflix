@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
@@ -14,7 +16,7 @@ class HomeController extends Controller
     public function index(Content $content)
     {
         return $content
-            ->css_file(Admin::asset("open-admin/css/pages/dashboard.css"))
+            ->css_file(Admin::asset('open-admin/css/pages/dashboard.css'))
             ->title('Dashboard')
             ->description('Description...')
             ->row(Dashboard::title())

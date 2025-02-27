@@ -18,6 +18,7 @@ class ContentController
         $data['content'] = $content;
 
         View::share('title', $content->name);
+
         return view('content', $data);
     }
 }

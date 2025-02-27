@@ -32,6 +32,7 @@ class WatchController extends Controller
             }
         }
         View::share('title', $video->name ?? $video->content->name);
+
         return view('watch', $data);
     }
 }

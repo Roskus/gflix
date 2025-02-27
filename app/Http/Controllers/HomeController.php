@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Content;
 
 class HomeController extends Controller
@@ -26,8 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-    	$content = new Content();
+        $content = new Content;
         $data['latest_contents'] = $content->getLatest();
-        return view('home',$data);
+
+        return view('home', $data);
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
@@ -12,6 +14,7 @@ class ProfileDetailController extends Controller
     {
         $user = User::find(Auth::user()->id);
         $data['user'] = $user;
+
         return view('profile', $data);
     }
 }
