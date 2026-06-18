@@ -9,13 +9,13 @@ help: ## Show this help menu
 	@egrep '^(.+)\:\ ##\ (.+)' ${MAKEFILE_LIST} | column -t -c 2 -s ':#'
 
 build: ## Create docker build containers
-	docker-compose build
+	docker compose build
 
 up: ## Start docker container
-	docker-compose up -d
+	docker compose up -d
 
 down: ## Stop docker container
-	docker-compose down
+	docker compose down
 
 ssh: ## Connect into php container
 	docker exec -it ${DOCKER_PHP} /bin/bash
@@ -43,3 +43,6 @@ install: ## Setup local environment
 	docker exec -it ${DOCKER_PHP} php artisan key:generate
 	$(MAKE) migrate
 	$(MAKE) seed
+
+ssl:
+	openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./etc/ssl/private/gflix.key -out ./etc/ssl/certs/gflix.crt

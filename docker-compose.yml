@@ -1,5 +1,4 @@
-# sudo docker-compose up -d
-version: "3.9"
+# sudo docker compose up -d
 services:
     php:
         build: .
@@ -14,9 +13,6 @@ services:
             - ./etc/ssl/private:/etc/ssl/private
             - ./storage/app/public:/var/www/gflix/storage/app/public
             - .:/var/www/gflix
-        ports:
-            - "80:80"
-            - "443:443"
     db:
         image: postgres:latest
         container_name: db
