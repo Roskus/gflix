@@ -11,6 +11,9 @@ help: ## Show this help menu
 build: ## Create docker build containers
 	docker compose build
 
+build-pg:
+	docker compose -f docker-compose.yml -f docker-compose.postgres.yml up -d
+
 up: ## Start docker container
 	docker compose up -d
 
@@ -43,3 +46,6 @@ install: ## Setup local environment
 	docker exec -it ${DOCKER_PHP} php artisan key:generate
 	$(MAKE) migrate
 	$(MAKE) seed
+
+ssl:
+	openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./etc/ssl/private/gflix.key -out ./etc/ssl/certs/gflix.crt

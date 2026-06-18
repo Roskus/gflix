@@ -1,36 +1,13 @@
-# sudo docker-compose up -d
+# sudo docker compose up -d
 services:
     php:
         build: .
         container_name: php
-        networks:
-            - app
-        depends_on:
-            - db
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
         volumes:
             - ./etc/.bashrc:/root/.bashrc
             - ./etc/ssl/certs:/etc/ssl/certs
             - ./etc/ssl/private:/etc/ssl/private
             - ./storage/app/public:/var/www/gflix/storage/app/public
             - .:/var/www/gflix
-        ports:
-            - "80:80"
-            - "443:443"
-    db:
-        image: postgres:latest
-        container_name: db
-        restart: always
-        environment:
-            POSTGRES_DB: gflix
-            POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: postgres
-        volumes:
-            - db_data:/var/lib/postgresql/data
-        networks:
-            - app
-        ports:
-            - "5432:5432"
-volumes:
-    db_data:
-networks:
-    app:

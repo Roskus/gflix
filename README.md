@@ -3,8 +3,8 @@ Netflix clone Site based in Laravel
 ![Screenshoot](./docs/screenshoot.png)
 
 ## Technologies
-* PHP 8.2
-* Laravel 10
+* PHP 8.3+
+* Laravel 12
 * Twitter bootstrap
 * Postgres
 * [OpenAdmin](https://github.com/open-admin-org/open-admin) 
@@ -22,9 +22,11 @@ docker run -p 80:80 -p 443:443 --name gflix -it gflix /bin/bash
 ### For local development
 Docker-compose
 ```terminal
-docker-compose build
-docker-compose up -d
+docker compose build
+docker compose up -d
 ```
+
+Application ports are exposed by `docker-compose.override.yml` on `http://localhost:8080` and `https://localhost:8443`.
 
 ## Utils
 Online Subtitle format converter from .srt -> .vtt
@@ -51,7 +53,12 @@ Important: Check web optimized
 
 ## Create Self-Signed SSL Certificate
 ```bash
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./etc/ssl/private/gflix.key -out ./etc/ssl/certs/gflix.crt
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./etc/ssl/private/gflix.key -out ./etc/ssl/certs/gflix.crt
+```
+or run
+
+```bash
+make ssl
 ```
 
 ## Admin

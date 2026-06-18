@@ -1,6 +1,9 @@
 version: "3.9"
 services:
   php:
+    ports:
+      - "8080:80"
+      - "8443:443"
     volumes:
       - /media/gustavo/KingData/series:/var/www/gflix/storage/app/public/series
       - /media/gustavo/KingData/movies:/var/www/gflix/storage/app/public/movies
