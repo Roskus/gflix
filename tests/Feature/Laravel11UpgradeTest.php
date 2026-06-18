@@ -38,8 +38,9 @@ class Laravel11UpgradeTest extends TestCase
      */
     public function test_middleware_configuration()
     {
-        // Test that we can access the router and middleware is configured
         $router = app('router');
+
         $this->assertNotNull($router);
+        $this->assertNotEmpty($router->getMiddleware());
     }
 }
