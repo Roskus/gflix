@@ -11,6 +11,9 @@ help: ## Show this help menu
 build: ## Create docker build containers
 	docker compose build
 
+build-pg:
+	docker compose -f docker-compose.yml -f docker-compose.postgres.yml up -d
+
 up: ## Start docker container
 	docker compose up -d
 
