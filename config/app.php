@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+require_once dirname(__DIR__).DIRECTORY_SEPARATOR.'version.php';
+
 return [
 
     /*
@@ -42,6 +44,14 @@ return [
     */
 
     'debug' => (bool) env('APP_DEBUG', false),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Version
+    |--------------------------------------------------------------------------
+    */
+
+    'version' => APP_VERSION,
 
     /*
     |--------------------------------------------------------------------------
