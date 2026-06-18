@@ -17,13 +17,19 @@ RUN apt-get update && \
     libpq-dev \
     libxml2-dev \
     libonig-dev \
+    zlib1g-dev \
+    libjpeg-dev \
+    libpng-dev \
     unzip \
     vim \
     nano \
-    && rm -rf /var/lib/apt/lists/* \
-    && docker-php-ext-install bcmath xml \
-    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
-    && docker-php-ext-install pdo pgsql pdo_pgsql
+    && rm -rf /var/lib/apt/lists/*
+
+# Install PHP extensions
+RUN docker-php-ext-install bcmath xml pdo pgsql pdo_pgsql && \
+    docker-php-ext-configure gd --with-jpeg && \
+    docker-php-ext-install gd && \
+    docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

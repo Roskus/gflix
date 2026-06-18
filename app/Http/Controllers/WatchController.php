@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 
 class WatchController extends Controller
@@ -14,6 +15,7 @@ class WatchController extends Controller
     {
         $video = Video::findOrFail($id);
         $data['video'] = $video;
+        $data['videoExists'] = Storage::exists("public/{$video->path}/{$video->src}");
 
         // Verificar si el video es parte de una serie
         if ($video->content->type == 'series') {

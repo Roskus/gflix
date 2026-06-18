@@ -1,9 +1,17 @@
 <div class="embed-responsive embed-responsive-16by9 mt-2">
-    <video id="video" controls preload="metadata" @isset($video->poster)poster="{{ asset("storage/$video->poster") }}"@endisset class="embed-responsive-item" autoplay>
-        <source src="{{ asset('storage/'.$video->path.'/'.$video->src) }}" type="video/mp4">
-        <track label="Español" kind="subtitles" srclang="es" src="{{ asset('storage/'.$video->path.'/'.$video->slug) }}.vtt" default>
-        <track label="English" kind="subtitles" srclang="en" src="{{ asset('storage/'.$video->path.'/'.$video->slug) }}_en.vtt">
-    </video>
+    @if($videoExists ?? false)
+        <video id="video" controls preload="metadata" @isset($video->poster)poster="{{ asset("storage/$video->poster") }}"@endisset class="embed-responsive-item" autoplay>
+            <source src="{{ asset('storage/'.$video->path.'/'.$video->src) }}" type="video/mp4">
+            <track label="Español" kind="subtitles" srclang="es" src="{{ asset('storage/'.$video->path.'/'.$video->slug) }}.vtt" default>
+            <track label="English" kind="subtitles" srclang="en" src="{{ asset('storage/'.$video->path.'/'.$video->slug) }}_en.vtt">
+        </video>
+    @else
+        <div class="embed-responsive-item d-flex align-items-center justify-content-center bg-dark" style="min-height: 400px;">
+            <div class="text-center text-white">
+                <p class="mb-0">Video no disponible</p>
+            </div>
+        </div>
+    @endif
 </div>
 @isset($nextChapterUrl)
 <script>

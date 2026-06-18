@@ -38,6 +38,12 @@ seed: ## Run Laravel seeders
 test: ## Run Laravel phpunit tests
 	docker exec -it ${DOCKER_PHP} php artisan test
 
+publish-admin: ## Publish Open Admin vendor files
+	docker exec -it ${DOCKER_PHP} php artisan vendor:publish --provider="OpenAdmin\Admin\AdminServiceProvider"
+
+storage-link: ## Publish storage
+	docker exec -it ${DOCKER_PHP} php artisan storage:link
+
 install: ## Setup local environment
 	cp .env.example .env
 	$(MAKE) build
@@ -46,6 +52,12 @@ install: ## Setup local environment
 	docker exec -it ${DOCKER_PHP} php artisan key:generate
 	$(MAKE) migrate
 	$(MAKE) seed
+	$(MAKE) publish-admin
+	$(MAKE) storage-link
 
 ssl:
 	openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./etc/ssl/private/gflix.key -out ./etc/ssl/certs/gflix.crt
+
+fix-perms: ## Fix storage and cache permissions
+	sudo chmod -R 775 storage bootstrap/cache
+	sudo chown -R ${USER}:www-data storage bootstrap/cache
