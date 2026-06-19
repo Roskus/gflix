@@ -4,22 +4,25 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class CategorySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        DB::table('category')->insert(['name' => 'Sci-Fi', 'url' => 'sci-fi']);
-        DB::table('category')->insert(['name' => 'Comedy', 'url' => 'comedy']);
-        DB::table('category')->insert(['name' => 'Action', 'url' => 'action']);
-        DB::table('category')->insert(['name' => 'Adventure', 'url' => 'adventure']);
-        DB::table('category')->insert(['name' => 'Terror', 'url' => 'terror']);
-        DB::table('category')->insert(['name' => 'Documentary', 'url' => 'documentary']);
-        DB::table('category')->insert(['name' => 'Romance', 'url' => 'romance']);
+        $categories = [
+            ['name' => 'Sci-Fi', 'url' => 'sci-fi'],
+            ['name' => 'Comedy', 'url' => 'comedy'],
+            ['name' => 'Action', 'url' => 'action'],
+            ['name' => 'Adventure', 'url' => 'adventure'],
+            ['name' => 'Terror', 'url' => 'terror'],
+            ['name' => 'Documentary', 'url' => 'documentary'],
+            ['name' => 'Romance', 'url' => 'romance'],
+        ];
+
+        foreach ($categories as $category) {
+            Category::firstOrCreate(['url' => $category['url']], $category);
+        }
     }
 }

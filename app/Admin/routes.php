@@ -16,6 +16,7 @@ Route::group([
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('/content', \App\Admin\Controllers\ContentController::class);
     $router->resource('/video', \App\Admin\Controllers\VideoController::class);
+    $router->resource('/category', \App\Admin\Controllers\CategoryController::class);
 
     $router->match(['get', 'post'], '/api/content', [App\Admin\Controllers\Api\ContentGetController::class, 'get']);
 });
