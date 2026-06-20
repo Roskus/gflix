@@ -61,3 +61,16 @@ ssl:
 fix-perms: ## Fix storage and cache permissions
 	sudo chmod -R 775 storage bootstrap/cache
 	sudo chown -R ${USER}:www-data storage bootstrap/cache
+
+# Ubuntu + Nginx alternatives
+build-ubuntu: ## Build Ubuntu + Nginx docker image
+	docker compose -f docker-compose.ubuntu.yml build
+
+up-ubuntu: ## Start Ubuntu + Nginx containers
+	docker compose -f docker-compose.ubuntu.yml up -d
+
+down-ubuntu: ## Stop Ubuntu + Nginx containers
+	docker compose -f docker-compose.ubuntu.yml down -v
+
+ssh-ubuntu: ## Connect to Ubuntu container
+	docker exec -it gflix-app /bin/bash

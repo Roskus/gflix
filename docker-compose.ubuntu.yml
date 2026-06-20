@@ -1,0 +1,27 @@
+# docker compose -f docker-compose.ubuntu.yml -f docker-compose.postgres.yml up -d
+services:
+  app:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/ubuntu/Dockerfile
+    container_name: gflix-app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./infrastructure/etc/ssl/certs:/etc/ssl/certs
+      - ./infrastructure/etc/ssl/private:/etc/ssl/private
+      - ./storage/app/public:/var/www/gflix/storage/app/public
+      - .:/var/www/gflix
+      - /var/cache/nginx
+      - /var/run
+    ports:
+      - "8080:80"
+      - "8443:443"
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+    networks:
+      - app
+
+networks:
+  app:

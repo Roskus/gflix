@@ -3,14 +3,14 @@ FROM php:8.4-apache
 WORKDIR /var/www/gflix
 
 # Set the working directory in the container
-ADD ./etc/ssl /etc/ssl
+ADD infrastructure/etc/ssl /etc/ssl
 ADD . /var/www/gflix
 
 ENV APACHE_DOCUMENT_ROOT /var/www/gflix/public
 
 # Install system dependencies
-RUN apt-get update && \
-    apt-get install -y \
+RUN apt-get update && apt-get install -y \
+    ca-certificates \
     curl \
     openssl \
     git \
@@ -22,8 +22,10 @@ RUN apt-get update && \
     libpng-dev \
     unzip \
     vim \
-    nano \
-    && rm -rf /var/lib/apt/lists/*
+    nano
+
+RUN rm -rf /var/lib/apt/lists/* && \
+    git config --global --add safe.directory /var/www/gflix
 
 # Install PHP extensions
 RUN docker-php-ext-install bcmath xml pdo pgsql pdo_pgsql && \
@@ -32,12 +34,13 @@ RUN docker-php-ext-install bcmath xml pdo pgsql pdo_pgsql && \
     docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
 
 # Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+    chmod +x /usr/local/bin/composer
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
 # Install application dependencies using Composer
-RUN composer install --no-interaction --optimize-autoloader
+RUN cd /var/www/gflix && composer install --no-interaction --optimize-autoloader
 
 # Check if www-data user exists and create if not
 RUN getent group www-data || groupadd -g 33 www-data
@@ -47,7 +50,7 @@ RUN getent passwd www-data || useradd -u 33 -g www-data -d /var/www -s /usr/sbin
 RUN chown -R www-data:www-data /var/www/gflix
 
 # Set up Apache virtual host
-COPY ./etc/apache2/apache.conf /etc/apache2/sites-available/000-default.conf
+COPY infrastructure/etc/apache2/apache.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod ssl rewrite
 
 EXPOSE 80
