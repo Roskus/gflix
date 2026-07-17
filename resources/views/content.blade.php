@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-2">
                     @isset($content->cover)
-                        <img src="{{ asset('storage/'.$content->type.'/'.$content->year.'/'.$content->cover) }}" alt="{{ $content->name }}" class="img-fluid">
+                        <img src="{{ asset('storage/'.$content->cover_path) }}" alt="{{ $content->name }}" class="img-fluid">
                     @endisset
                 </div>
                 <div class="col-10">
@@ -35,7 +35,7 @@
             <div class="col">
                 <div class="card h-100">
                     @isset($episode->poster)
-                    <img src="{{ asset("storage/$episode->poster") }}" alt="{{ $episode->name }}" class="img-fluid">
+                    <img src="{{ asset("storage/$episode->poster_path") }}" alt="{{ $episode->name }}" class="img-fluid">
                     @endisset
                     <div class="card-body">
                         <h5 class="card-title">

@@ -8,7 +8,7 @@
             <div class="card h-100 shadow-sm" data-bs-theme="dark">
                 @isset($content->cover)
                     <a href="{{ url($content->url) }}" class="">
-                        <img src="{{ asset('storage/'.$content->type.'/'.$content->year.'/'.$content->cover) }}" alt="{{ $content->name }}" class="card-img-top img-fluid">
+                        <img src="{{ asset('storage/'.$content->cover_path) }}" alt="{{ $content->name }}" class="card-img-top img-fluid">
                     </a>
                 @endisset
                 <div class="card-body d-flex flex-column">

@@ -1,6 +1,6 @@
 <div class="embed-responsive embed-responsive-16by9 mt-2">
     @if($videoExists ?? false)
-        <video id="video" controls preload="metadata" @isset($video->poster)poster="{{ asset("storage/$video->poster") }}"@endisset class="embed-responsive-item" autoplay>
+        <video id="video" controls preload="metadata" @isset($video->poster)poster="{{ asset("storage/$video->poster_path") }}"@endisset class="embed-responsive-item" autoplay>
             <source src="{{ asset('storage/'.$video->path.'/'.$video->src) }}" type="video/mp4">
             <track label="Español" kind="subtitles" srclang="es" src="{{ asset('storage/'.$video->path.'/'.$video->slug) }}.vtt" default>
             <track label="English" kind="subtitles" srclang="en" src="{{ asset('storage/'.$video->path.'/'.$video->slug) }}_en.vtt">

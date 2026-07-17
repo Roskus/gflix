@@ -30,14 +30,15 @@ class ContentController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
-        $grid->column('cover', __('Cover'));
-        $grid->column('wallpaper', __('Wallpaper'));
-        $grid->column('description', __('Description'));
+        $grid->column('cover', __('Poster'))->image('', 50, 50);
+        $grid->column('wallpaper', __('Wallpaper'))->image('', 80, 45);
+        $grid->column('category.name', __('Category'));
+        $grid->column('type', __('Type'));
         $grid->column('year', __('Year'));
         $grid->column('trailer_url', __('Trailer url'));
         $grid->column('url', __('Url'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('created_at', __('Created at'))->datetime();
+        $grid->column('updated_at', __('Updated at'))->datetime();
         $grid->column('type', __('Type'));
 
         return $grid;
@@ -78,8 +79,11 @@ class ContentController extends AdminController
         $form = new Form(new Content);
 
         $form->text('name', __('Name'))->rules('required');
-        $form->text('cover', __('Poster'));
-        $form->text('wallpaper', __('Wallpaper'));
+        $form->select('category_id', __('Category'))->options(
+            \App\Models\Category::pluck('name', 'id')->toArray()
+        );
+        $form->image('cover', __('Poster'))->disk('public');
+        $form->image('wallpaper', __('Wallpaper'))->disk('public');
         $form->textarea('description', __('Description'))->rules('max:255');
         $form->number('year', __('Year'))->rules('required')->min(1895);
         $form->text('trailer_url', __('Trailer url'));

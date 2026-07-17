@@ -31,13 +31,15 @@ class VideoController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('content_id', __('Content id'));
-        $grid->column('src', __('Src'));
+        $grid->column('poster', __('Poster'))->image('', 200, 150);
+        $grid->column('name', __('Name'));
         $grid->column('lang', __('Lang'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('duration', __('Duration'));
+        $grid->column('src', __('Src'));
         $grid->column('path', __('Path'));
         $grid->column('slug', __('Slug'));
-        $grid->column('name', __('Name'));
+        $grid->column('created_at', __('Created at'));
+        $grid->column('updated_at', __('Updated at'));
 
         return $grid;
     }
@@ -89,7 +91,7 @@ class VideoController extends AdminController
         $form->text('slug', __('Slug'))->rules('required');
         $form->text('name', __('Name'));
         $form->text('description', __('Description'))->rules('max:255');
-        $form->text('poster', __('Poster'));
+        $form->image('poster', __('Poster'))->disk('public');
         $form->number('duration', __('Duration'));
 
         return $form;
